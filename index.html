@@ -23,7 +23,7 @@
   --henna:    #8b6f5e;
   --rose:     #c9a0a0;
   --ink:      #2a2428;
-  --muted:    #8a7e78;
+  --muted:    #6a5e58;
   --line:     #ddd5cc;
   --white:    #ffffff;
 }
@@ -68,7 +68,7 @@ nav {
   display: block; padding: 0 1rem;
   font-family: 'Jost', sans-serif; font-weight: 300;
   font-size: 0.82rem; letter-spacing: 0.08em;
-  text-decoration: none; color: rgba(196,168,130,0.5);
+  text-decoration: none; color: rgba(196,168,130,0.4);
   height: 58px; line-height: 58px;
   border-bottom: 2px solid transparent;
   transition: color 0.3s, border-color 0.3s;
@@ -126,7 +126,7 @@ nav {
 }
 
 .hero-devanagari {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(0.85rem, 1.5vw, 1.1rem);
   font-style: italic;
   color: rgba(196,168,130,0.45);
@@ -145,7 +145,7 @@ nav {
 }
 
 .hero-title-hi {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(1.1rem, 2.5vw, 1.8rem);
   font-style: italic;
   color: var(--goldlt);
@@ -164,9 +164,9 @@ nav {
 .hdot { font-size: 1.2rem; color: var(--marigold); }
 
 .hero-sub {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(1rem, 2vw, 1.3rem);
-  font-style: italic; color: rgba(255,255,255,0.45);
+  font-style: italic; color: rgba(255,255,255,0.55);
   max-width: 500px; line-height: 1.7; margin-bottom: 3rem;
   opacity: 0; animation: up 0.8s 1.3s forwards;
 }
@@ -194,7 +194,7 @@ nav {
   display: flex; align-items: center; justify-content: center;
   font-size: 0.6rem; color: var(--goldlt); font-family: 'Jost', sans-serif; font-weight: 300;
 }
-.pill-t { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.82rem; letter-spacing: 0.08em; color: rgba(196,168,130,0.6); }
+.pill-t { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.82rem; letter-spacing: 0.08em; color: rgba(196,168,130,0.5); }
 
 /* ── ORNAMENT BAND ── */
 .ornament-band {
@@ -224,7 +224,7 @@ nav {
   display: inline-block;
   font-family: 'Jost', sans-serif; font-weight: 300;
   font-size: 0.75rem; letter-spacing: 0.3em;
-  text-transform: uppercase; color: var(--saffron);
+  text-transform: uppercase; color: #a07050;
   margin-bottom: 0.8rem;
   padding: 0.2rem 1.2rem;
   border: 1px solid rgba(196,160,130,0.2);
@@ -236,19 +236,19 @@ nav {
   font-size: clamp(2rem, 5vw, 3.5rem);
   color: var(--maroon); line-height: 1.1; margin-bottom: 0.5rem;
 }
-.ch-title em { font-style: italic; color: var(--saffron); font-family: 'Cormorant Garamond', serif; }
+.ch-title em { font-style: italic; color: #9a6545; font-family: 'Playfair Display', serif; }
 
 .ch-title-hi {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(0.95rem, 1.8vw, 1.2rem);
   font-style: italic;
-  color: var(--turmeric); margin-bottom: 1rem;
-  opacity: 0.85;
+  color: #7a5a42; margin-bottom: 1rem;
+  opacity: 1;
   letter-spacing: 0.06em;
 }
 
 .ch-desc {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1rem; color: var(--muted);
   max-width: 540px; margin: 0 auto; line-height: 1.9;
 }
@@ -259,7 +259,7 @@ nav {
 }
 .col { width: 50px; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
 .col.r { background: linear-gradient(to left, transparent, var(--gold)); }
-.codot { font-size: 1rem; color: var(--marigold); }
+.codot { font-size: 1rem; color: #a07050; }
 
 /* ── SECTION BAND ── */
 .sband {
@@ -273,7 +273,7 @@ nav {
 .sband-lbl {
   font-family: 'Jost', sans-serif; font-weight: 300;
   font-size: 0.78rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--marigold);
+  text-transform: uppercase; color: #c49060;
   white-space: nowrap;
 }
 .sband-line { flex: 1; height: 1px; background: rgba(196,168,130,0.15); }
@@ -327,7 +327,7 @@ nav {
 }
 .pcard:hover .pcard-ov { background: linear-gradient(transparent, rgba(26,24,32,0.7)); }
 .ov-lbl {
-  font-family: 'Jost', sans-serif; font-weight: 400;
+  font-family: 'Jost', sans-serif; font-weight: 300;
   font-size: 0.75rem; letter-spacing: 0.15em;
   text-transform: uppercase; color: #ffffff;
 }
@@ -352,7 +352,7 @@ nav {
 }
 .vcard:hover .play-ring { transform: scale(1.1); background: rgba(201,160,160,0.1); }
 .play-tri { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 16px solid var(--marigold); margin-left: 3px; }
-.vc-lbl { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(196,168,130,0.3); }
+.vc-lbl { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(196,168,130,0.4); }
 
 /* ── STORY BLOCK ── */
 .story-block {
@@ -360,13 +360,13 @@ nav {
   padding: 1.5rem 2rem 0; text-align: center;
 }
 .sq {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   font-style: italic; color: var(--maroon);
   line-height: 1.65; margin-bottom: 1rem;
 }
 .sq-hi {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(1rem, 2vw, 1.2rem);
   font-style: italic;
   color: var(--turmeric);
@@ -401,17 +401,17 @@ nav {
   color: var(--marigold); line-height: 1; margin-bottom: 0.3rem;
 }
 .csep-hi {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1rem; font-style: italic; color: var(--goldlt); opacity: 0.65; margin-bottom: 0.3rem;
   letter-spacing: 0.04em;
 }
-.csep-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(196,168,130,0.35); }
+.csep-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(196,168,130,0.7); }
 
 /* ── YOUTUBE ── */
 .yt-wrap { padding: 4rem 2rem; max-width: 920px; margin: 0 auto; }
 .yt-hd { text-align: center; margin-bottom: 2rem; }
 .yt-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(1.4rem,3vw,2rem); color: var(--maroon); margin-bottom: 0.3rem; }
-.yt-hi { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; font-style: italic; color: var(--turmeric); opacity: 0.8; margin-bottom: 0.4rem; }
+.yt-hi { font-family: 'Playfair Display', serif; font-size: 0.92rem; font-style: italic; color: var(--turmeric); opacity: 0.8; margin-bottom: 0.4rem; }
 .yt-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.85rem; color: var(--muted); font-style: italic; }
 
 .yt-frame-wrap {
@@ -440,7 +440,7 @@ nav {
 }
 .yt-pbtn:hover { transform: scale(1.08); background: rgba(201,160,160,0.08); }
 .yt-ptri { width: 0; height: 0; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid var(--marigold); margin-left: 5px; }
-.yt-ph p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(196,168,130,0.4); }
+.yt-ph p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: rgba(196,168,130,0.5); }
 
 /* ── MONTH TIMELINE ── */
 .month-section { padding: 2rem 2rem 2rem; max-width: 1000px; margin: 0 auto; }
@@ -468,11 +468,11 @@ nav {
 }
 .m-name {
   font-family: 'Cormorant Garamond', serif; font-weight: 500;
-  font-size: 1.2rem; color: var(--maroon);
+  font-size: 1.2rem; color: #2a1e1e;
   position: relative; z-index: 1;
 }
 .m-name-hi { display: none; }
-.m-age { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); position: relative; z-index: 1; }
+.m-age { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #6a5a50; position: relative; z-index: 1; }
 
 .m-dot { display: none; }
 .m-dot::after { display: none; }
@@ -484,13 +484,13 @@ nav {
 
 .m-mile {
   font-family: 'Cormorant Garamond', serif; font-weight: 500;
-  font-size: 1.4rem; color: var(--maroon); margin-bottom: 0.2rem;
+  font-size: 1.4rem; color: #2a1e1e; margin-bottom: 0.2rem;
 }
 .m-mile-hi {
   font-family: 'Jost', sans-serif; font-weight: 300;
   font-size: 0.8rem; color: var(--turmeric); opacity: 0.65; margin-bottom: 0.5rem;
 }
-.m-desc { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; max-width: 100%; }
+.m-desc { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; max-width: 100%; }
 
 .m-photos { display: flex; gap: 1.2rem; flex-wrap: wrap; width: 100%; }
 .mp {
@@ -516,9 +516,51 @@ nav {
 .mpt { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 14px solid var(--marigold); margin-left: 3px; }
 
 /* last month */
-.month-row.last .m-name { color: var(--saffron); font-size: 1.3rem; }
-.month-row.last .m-mile { color: var(--saffron); font-size: 1.5rem; }
 .month-row.last { border-bottom: none; }
+
+/* ── CONTINUING JOURNEY ── */
+.continuing {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: var(--cream);
+  position: relative;
+}
+.cont-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.cont-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  color: #a07050;
+  margin-bottom: 1rem;
+}
+.cont-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: #2a1e1e;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.cont-title em {
+  font-style: italic;
+  color: #9a6545;
+}
+.cont-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #4a3e38;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.cont-divider {
+  display: flex; align-items: center;
+  gap: 1rem; justify-content: center;
+}
 
 /* ── CLOSING ── */
 .closing {
@@ -538,15 +580,15 @@ nav {
 }
 .cl-om { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 2.5rem; color: var(--marigold); margin-bottom: 0.5rem; letter-spacing: 0.4em; }
 .cl-sc { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2.5rem,6vw,5rem); color: var(--marigold); line-height: 1; margin-bottom: 0.4rem; }
-.cl-hi { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem,2.5vw,1.4rem); font-style: italic; color: var(--goldlt); opacity: 0.6; margin-bottom: 1rem; letter-spacing: 0.04em; }
-.cl-ln { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.95rem,2vw,1.2rem); font-style: italic; color: rgba(255,255,255,0.38); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.75; }
+.cl-hi { font-family: 'Playfair Display', serif; font-size: clamp(1rem,2.5vw,1.4rem); font-style: italic; color: var(--goldlt); opacity: 0.6; margin-bottom: 1rem; letter-spacing: 0.04em; }
+.cl-ln { font-family: 'Playfair Display', serif; font-size: clamp(0.95rem,2vw,1.2rem); font-style: italic; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.75; }
 .cl-ht { font-size: 1.5rem; letter-spacing: 0.8rem; color: var(--saffron); }
 
 footer {
   background: var(--maroon);
   padding: 1.5rem; text-align: center;
   font-family: 'Jost', sans-serif; font-weight: 300;
-  font-size: 0.75rem; color: rgba(196,168,130,0.3);
+  font-size: 0.75rem; color: rgba(196,168,130,0.4);
   letter-spacing: 0.15em;
   border-top: 1px solid var(--line);
 }
@@ -615,8 +657,8 @@ footer {
   </div>
 
   <p class="hero-sub">
-    From the godh bharai to her first trip to Goa — every chapter of Mahika's journey,<br>
-    captured in photos and videos we'll treasure forever.
+    Every chapter of her first year —<br>
+    captured forever.
   </p>
 
   <div class="hero-chapters">
@@ -774,13 +816,13 @@ footer {
         <span class="m-num">02</span>
         <span class="m-name">Month 2</span>
         
-        <span class="m-age">With Papa</span>
+        <span class="m-age">Two Months</span>
         <div class="m-dot"></div>
       </div>
       <div class="month-body">
-        <h3 class="m-mile">Papa's Little Girl 😊</h3>
+        <h3 class="m-mile">Growing Every Day 😊</h3>
         
-        <p class="m-desc">Two months old and already Papa's best friend. She lights up when he holds her, and he lights up right back. The bond is everything.</p>
+        <p class="m-desc">Two months old and already so expressive. She recognises our faces, follows our voices, and melts our hearts with every little expression. Growing more beautiful every day.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/2%20months%20old.jpg" alt="2 months old"></div></div>
           <div class="mp s"><div class="mp-in"><img src="images/month2%20with%20papa.jpg" alt="Month 2 - with Papa"></div></div>
@@ -986,7 +1028,7 @@ footer {
       <div class="month-body">
         <h3 class="m-mile">First Trip to Goa & Swimming Lessons! 🏖️</h3>
         
-        <p class="m-desc">One year of Mahika! We celebrated by taking her on her first trip to Goa — sand between tiny toes, ocean breeze in her hair, and her very first swimming lesson. From the hospital to the beach — what an incredible journey this year has been.</p>
+        <p class="m-desc">One year of Mahika! We celebrated by taking her on her first trip to Goa — sand between tiny toes, ocean breeze in her hair. From the hospital to the beach — what an incredible journey this year has been.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/month%2012%20goa.jpg" alt="Month 12 - first trip to Goa"></div></div>
           <div class="mp s"><div class="mp-in"><img src="images/month%2012%20goa%202.jpg" alt="Month 12 - Goa"></div></div>
@@ -998,8 +1040,34 @@ footer {
 </section>
 
 <div class="ornament-band"></div>
+<!-- ════════════════════════════════════
+  TO BE CONTINUED
+════════════════════════════════════ -->
+<section class="continuing reveal">
+  <div class="cont-inner">
 
-<!-- CLOSING -->
+    <p class="cont-eyebrow">And the story goes on...</p>
+
+    <h2 class="cont-title">
+      Her most beautiful chapters are still <em>ahead</em>
+    </h2>
+
+    <p class="cont-desc">
+      One tiny year, a lifetime of memories already.<br><br>
+      And this is only the beginning — more laughter, more adventures,
+      more dreams, and countless beautiful tomorrows waiting for our little Mahika.
+    </p>
+
+    <div class="cont-divider">
+      <div class="cdl"></div>
+      <span class="codot">∞</span>
+      <div class="cdl r"></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ornament-band"></div>z<!-- CLOSING -->
 <section class="closing reveal">
   <div class="closing-glow"></div>
   <p class="cl-om">✦</p>
@@ -1031,7 +1099,7 @@ const navIO = new IntersectionObserver(entries => {
       if (a) a.classList.add('active');
     }
   });
-}, { threshold: 0.3 });
+}, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
 chapters.forEach(c => navIO.observe(c));
 </script>
 </body>
