@@ -322,14 +322,14 @@ nav {
 .pcard-ov {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
   padding: 2.5rem 1rem 0.9rem;
-  background: linear-gradient(transparent, rgba(26,24,32,0.65));
-  opacity: 0; transition: opacity 0.4s;
+  background: linear-gradient(transparent, rgba(26,24,32,0.55));
+  opacity: 1;
 }
-.pcard:hover .pcard-ov { opacity: 1; }
+.pcard:hover .pcard-ov { background: linear-gradient(transparent, rgba(26,24,32,0.7)); }
 .ov-lbl {
-  font-family: 'Jost', sans-serif; font-weight: 300;
-  font-size: 0.7rem; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--goldlt);
+  font-family: 'Jost', sans-serif; font-weight: 400;
+  font-size: 0.75rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: #ffffff;
 }
 
 /* ── VIDEO CARD ── */
@@ -443,54 +443,42 @@ nav {
 .yt-ph p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(196,168,130,0.4); }
 
 /* ── MONTH TIMELINE ── */
-.month-section { padding: 3rem 2rem 2rem; max-width: 1200px; margin: 0 auto; }
+.month-section { padding: 2rem 2rem 2rem; max-width: 1000px; margin: 0 auto; }
 
 .month-row {
-  display: grid; grid-template-columns: 120px 1fr;
+  display: block;
   position: relative; margin-bottom: 0;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--line);
 }
-.month-row::before {
-  content: '';
-  position: absolute;
-  left: 120px; top: 0; bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, var(--line), rgba(196,168,130,0.15));
-  z-index: 0;
-}
+.month-row:last-child { border-bottom: none; }
+.month-row::before { display: none; }
 
 .month-lbl {
-  padding: 1.8rem 1.6rem 0 0;
-  display: flex; flex-direction: column;
-  align-items: flex-end; position: relative; z-index: 1;
+  padding: 2.5rem 0 0.8rem 0;
+  display: flex; flex-direction: row;
+  align-items: baseline; gap: 1rem;
+  position: relative; z-index: 1;
 }
 .m-num {
   font-family: 'Cormorant Garamond', serif; font-weight: 500;
-  font-size: 2.6rem; color: rgba(196,168,130,0.15);
+  font-size: 3.5rem; color: rgba(196,168,130,0.12);
   line-height: 1; position: absolute;
-  top: 1rem; right: 1.5rem;
+  top: 1.5rem; right: 0;
 }
 .m-name {
   font-family: 'Cormorant Garamond', serif; font-weight: 500;
-  font-size: 1.1rem; color: var(--maroon);
+  font-size: 1.2rem; color: var(--maroon);
   position: relative; z-index: 1;
 }
 .m-name-hi { display: none; }
-.m-age { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.15rem; position: relative; z-index: 1; }
+.m-age { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); position: relative; z-index: 1; }
 
-.m-dot {
-  position: absolute; right: -7px; top: 2.2rem;
-  width: 13px; height: 13px; border-radius: 50%;
-  background: var(--ivory);
-  border: 2px solid var(--line); z-index: 2;
-}
-.m-dot::after {
-  content: '';
-  position: absolute; inset: 2px; border-radius: 50%;
-  background: var(--marigold); opacity: 0.6;
-}
+.m-dot { display: none; }
+.m-dot::after { display: none; }
 
 .month-body {
-  padding: 1.8rem 0 3.5rem 2rem;
+  padding: 0 0 1rem 0;
   position: relative; z-index: 1;
 }
 
@@ -502,7 +490,7 @@ nav {
   font-family: 'Jost', sans-serif; font-weight: 300;
   font-size: 0.8rem; color: var(--turmeric); opacity: 0.65; margin-bottom: 0.5rem;
 }
-.m-desc { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; max-width: 700px; }
+.m-desc { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; max-width: 100%; }
 
 .m-photos { display: flex; gap: 1.2rem; flex-wrap: wrap; width: 100%; }
 .mp {
@@ -528,11 +516,9 @@ nav {
 .mpt { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 14px solid var(--marigold); margin-left: 3px; }
 
 /* last month */
-.month-row.last .m-name { color: var(--saffron); font-size: 1rem; }
-.month-row.last .m-dot { border-color: var(--saffron); width: 17px; height: 17px; right: -9px; }
-.month-row.last .m-dot::after { background: var(--saffron); }
-.month-row.last .m-mile { color: var(--saffron); font-size: 1.3rem; }
-.month-row.last::before { background: linear-gradient(to bottom, var(--line), transparent); }
+.month-row.last .m-name { color: var(--saffron); font-size: 1.3rem; }
+.month-row.last .m-mile { color: var(--saffron); font-size: 1.5rem; }
+.month-row.last { border-bottom: none; }
 
 /* ── CLOSING ── */
 .closing {
@@ -579,11 +565,18 @@ footer {
   .nav-links { display: none; }
   .hero { padding: 80px 1.5rem 4rem; }
   .pgrid.g2, .pgrid.g3, .pgrid.gft, .pgrid.gtr { grid-template-columns: 1fr; }
-  .month-row { grid-template-columns: 90px 1fr; }
-  .month-row::before { left: 90px; }
+  .month-section { padding: 1rem 1rem; }
   .mp.s { width: 100%; }
   .mp.m { width: 100%; }
   .mp.l { width: 100%; }
+}
+
+/* ── VIDEO ELEMENT ── */
+.mp video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
 }
 </style>
 </head>
@@ -720,8 +713,8 @@ footer {
   </div>
 
   <div class="pgrid g1 reveal">
-    <div class="pcard wide">
-      <div class="pcard-in"><img src="images/day%2021%20-%20naming%20ceremony.jpg" alt="Day 21 - Naming ceremony"></div>
+    <div class="pcard land">
+      <div class="pcard-in"><img src="images/day%2021%20-%20naming%20ceremony.jpg" alt="Day 21 - Naming ceremony" style="object-position: top center;"></div>
       <div class="pcard-ov"><p class="ov-lbl">Day 21 — Naming Ceremony · She Became Mahika</p></div>
     </div>
   </div>
@@ -791,7 +784,7 @@ footer {
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/2%20months%20old.jpg" alt="2 months old"></div></div>
           <div class="mp s"><div class="mp-in"><img src="images/month2%20with%20papa.jpg" alt="Month 2 - with Papa"></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- 2 months.MOV --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/2%20months.mp4" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -811,7 +804,7 @@ footer {
         <p class="m-desc">Three months and she gave us that first big, real smile. Not just a reflex — a proper, eyes-crinkling, heart-melting smile meant just for us.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/3%20months%20first%20big%20smile.jpg" alt="3 months - first big smile"></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- 3 months.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/3%20months.mov" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -831,7 +824,7 @@ footer {
         <p class="m-desc">Four months old and full of personality. Giggles, curious hands reaching for everything, and expressions that make the whole family laugh.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/4%20months.jpg" alt="4 months"></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- 4 months video --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/4%20months_.mp4" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -851,7 +844,7 @@ footer {
         <p class="m-desc">Anna Prasanna — the ceremony of her very first solid food. The expression on her face when she tasted rice for the first time was absolutely priceless.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/5months%20old.jpg" alt="5 months old"></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- Anna prasanna - first solid food --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/Anna%20prasanna%20-%20first%20solid%20food%20-%205%20months_.mp4" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -871,7 +864,7 @@ footer {
         <p class="m-desc">Half a year of Mahika! We celebrated her six-month birthday and watched her try so hard to roll over — pure determination in a tiny body.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/6%20month%20birthday.jpg" alt="6 month birthday"></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- 6 months - trying to roll --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/6%20months%20-%20trying%20to%20roll_.mp4" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -891,9 +884,9 @@ footer {
         <p class="m-desc">Seven months and Mahika's personality exploded. She loves playing hide and seek, tasted fruits for the first time, and started trying to stand up. Every day is a new adventure with this little one.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/7%20months.jpg" alt="7 months"></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- 7 months - hide and seek --><div class="mpr"><div class="mpt"></div></div></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- 7 months - tasting fruits --><div class="mpr"><div class="mpt"></div></div></div></div>
-          <div class="mp vt l"><div class="mp-in"><!-- 7 months - trying to stand up (HORIZONTAL) --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/7%20months%20-%20love%20playing%20hide%20and%20seek.mov" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/7%20months%20-%20tasting%20fruits.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp l"><div class="mp-in"><video src="videos/7%20months%20-%20trying%20to%20stand%20up%20.mov" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -912,9 +905,9 @@ footer {
         
         <p class="m-desc">Eight months and Mahika loves going out — every outing is an adventure. She watches the world with the widest eyes, taking it all in.</p>
         <div class="m-photos">
-          <div class="mp vt s"><div class="mp-in"><!-- 8 months - love going out --><div class="mpr"><div class="mpt"></div></div></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- 8 months 2.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- 8 months.MOV --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/8%20months%20-%20love%20going%20out.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/8%20months%202.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/8%20months.MOV" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -935,7 +928,7 @@ footer {
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/month%209.jpg" alt="Month 9"></div></div>
           <div class="mp s"><div class="mp-in"><img src="images/month%209a.jpg" alt="Month 9"></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- month 9 - playground.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/month%209%20-%20playground.mp4" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -955,8 +948,8 @@ footer {
         <p class="m-desc">Ten months old and Mahika experienced a swimming pool for the very first time! The splash, the surprise, the giggles — she took to water like a little fish.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/10%20months.jpg" alt="10 months"></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- 10 month.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- month 10 - first swimming pool exp --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/10%20month.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/month%2010%20-%20first%20swimming%20pool%20exp.mp4" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -975,8 +968,8 @@ footer {
         
         <p class="m-desc">Eleven months and Mahika has found her favourite thing — her little bike! She lights up every time she sees it. Almost one year old, and she's already got her own set of wheels.</p>
         <div class="m-photos">
-          <div class="mp vt s"><div class="mp-in"><!-- 11 months.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- month 11 - love her bike.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/11%20months.mov" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in"><video src="videos/month%2011%20-%20love%20her%20bike.mp4" controls playsinline preload="metadata"></video></div></div>
         </div>
       </div>
     </div>
@@ -997,7 +990,6 @@ footer {
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/month%2012%20goa.jpg" alt="Month 12 - first trip to Goa"></div></div>
           <div class="mp s"><div class="mp-in"><img src="images/month%2012%20goa%202.jpg" alt="Month 12 - Goa"></div></div>
-          <div class="mp vt s"><div class="mp-in"><!-- month 12 - first lesson in swimming.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
         </div>
       </div>
     </div>
