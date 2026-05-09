@@ -315,7 +315,7 @@ nav {
   display: flex; align-items: center; justify-content: center;
   flex-direction: column; gap: 0.6rem; z-index: 0;
 }
-.pcard-in img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; image-rendering: auto; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: translateZ(0); }
+.pcard-in img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .phi { font-size: 2rem; opacity: 0.2; color: var(--maroon); }
 .pht { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); opacity: 0.5; }
 
@@ -510,18 +510,19 @@ nav {
   background: transparent;
   border: none;
   position: relative; cursor: pointer;
+  transition: transform 0.4s, box-shadow 0.4s;
 }
-.mp:hover { }
+.mp:hover { transform: scale(1.015); box-shadow: 0 8px 32px rgba(42,36,40,0.12); }
 .mp.s  { width: calc(50% - 0.6rem); aspect-ratio: 3/4; }
 .mp.m  { width: calc(50% - 0.6rem); aspect-ratio: 3/4; }
 .mp.l  { width: 100%; aspect-ratio: 16/10; }
 .mp-in {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem; opacity: 0.18; color: var(--maroon);
+  font-size: 1.3rem; color: var(--maroon);
 }
-.mp-in img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 6px; image-rendering: auto; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: translateZ(0); }
-.mp.vt { background: var(--deepred); border-color: rgba(196,168,130,0.15); }
+.mp-in img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.mp.vt { background: var(--deepred); border: none; }
 .mp.vt .mp-in { opacity: 1; flex-direction: column; gap: 0.3rem; }
 .mpr { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--marigold); display: flex; align-items: center; justify-content: center; }
 .mpt { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 14px solid var(--marigold); margin-left: 3px; }
