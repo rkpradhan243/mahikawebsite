@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>  — Our Daughter's Story</title>
+<title>Mahika — Our Daughter's Story</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:ital,wght@0,300;0,400;1,300&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
@@ -88,7 +88,6 @@ nav {
   padding: 80px 2rem 4rem;
 }
 
-/* Paisley/mandala SVG pattern overlay */
 .hero-pattern {
   position: absolute; inset: 0;
   background-image:
@@ -98,7 +97,6 @@ nav {
   pointer-events: none;
 }
 
-/* Top and bottom border ornament */
 .hero-border-top, .hero-border-bottom {
   position: absolute; left: 0; right: 0; height: 2px;
   background: linear-gradient(to right, transparent, var(--line), transparent);
@@ -106,7 +104,6 @@ nav {
 .hero-border-top { top: 58px; }
 .hero-border-bottom { bottom: 0; }
 
-/* Decorative corner SVG-like borders */
 .hero-corner {
   position: absolute; width: 120px; height: 120px;
   border: 1px solid rgba(196,168,130,0.12);
@@ -243,7 +240,6 @@ nav {
   font-size: clamp(0.95rem, 1.8vw, 1.2rem);
   font-style: italic;
   color: #7a5a42; margin-bottom: 1rem;
-  opacity: 1;
   letter-spacing: 0.06em;
 }
 
@@ -298,11 +294,7 @@ nav {
   border: none;
   transition: transform 0.4s, box-shadow 0.4s;
 }
-.pcard::before {
-  display: none;
-}
 .pcard:hover { transform: scale(1.015); box-shadow: 0 8px 32px rgba(42,36,40,0.12); }
-.pcard:hover::before { }
 
 .pcard.tall    { aspect-ratio: 3/4; }
 .pcard.port    { aspect-ratio: 2/3; }
@@ -316,8 +308,6 @@ nav {
   flex-direction: column; gap: 0.6rem; z-index: 0;
 }
 .pcard-in img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.phi { font-size: 2rem; opacity: 0.2; color: var(--maroon); }
-.pht { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); opacity: 0.5; }
 
 .pcard-ov {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
@@ -332,38 +322,10 @@ nav {
   text-transform: uppercase; color: #ffffff;
 }
 
-/* ── VIDEO CARD ── */
-.vcard {
-  position: relative; overflow: hidden;
-  border-radius: 2px; background: var(--deepred);
-  border: 1px solid rgba(196,168,130,0.25);
-  cursor: pointer;
-}
-.vcard-in {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 1rem;
-}
-.play-ring {
-  width: 58px; height: 58px; border-radius: 50%;
-  border: 1.5px solid var(--marigold);
-  display: flex; align-items: center; justify-content: center;
-  transition: transform 0.3s, background 0.3s;
-}
-.vcard:hover .play-ring { transform: scale(1.1); background: rgba(201,160,160,0.1); }
-.play-tri { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 16px solid var(--marigold); margin-left: 3px; }
-.vc-lbl { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(196,168,130,0.4); }
-
 /* ── STORY BLOCK ── */
 .story-block {
   max-width: 660px; margin: 0 auto;
   padding: 1.5rem 2rem 0; text-align: center;
-}
-.sq {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  font-style: italic; color: var(--maroon);
-  line-height: 1.65; margin-bottom: 1rem;
 }
 .sq-hi {
   font-family: 'Playfair Display', serif;
@@ -407,41 +369,6 @@ nav {
 }
 .csep-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(196,168,130,0.7); }
 
-/* ── YOUTUBE ── */
-.yt-wrap { padding: 4rem 2rem; max-width: 920px; margin: 0 auto; }
-.yt-hd { text-align: center; margin-bottom: 2rem; }
-.yt-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(1.4rem,3vw,2rem); color: var(--maroon); margin-bottom: 0.3rem; }
-.yt-hi { font-family: 'Playfair Display', serif; font-size: 0.92rem; font-style: italic; color: var(--turmeric); opacity: 0.8; margin-bottom: 0.4rem; }
-.yt-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.85rem; color: var(--muted); font-style: italic; }
-
-.yt-frame-wrap {
-  position: relative; padding-bottom: 56.25%; height: 0;
-  border: 2px solid var(--line); border-radius: 2px; overflow: hidden;
-  box-shadow: 0 20px 60px rgba(42,36,40,0.15), inset 0 0 0 4px rgba(196,168,130,0.06);
-}
-.yt-frame-wrap::before {
-  content: '';
-  position: absolute; inset: 6px;
-  border: 1px solid rgba(196,168,130,0.15);
-  z-index: 2; pointer-events: none;
-}
-.yt-frame-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 1; }
-.yt-ph {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(135deg, var(--deepred), #6b1a1a);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 1.2rem; cursor: pointer;
-}
-.yt-pbtn {
-  width: 78px; height: 78px; border-radius: 50%;
-  border: 2px solid var(--marigold);
-  display: flex; align-items: center; justify-content: center;
-  transition: transform 0.3s, background 0.3s;
-}
-.yt-pbtn:hover { transform: scale(1.08); background: rgba(201,160,160,0.08); }
-.yt-ptri { width: 0; height: 0; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid var(--marigold); margin-left: 5px; }
-.yt-ph p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: rgba(196,168,130,0.5); }
-
 /* ── MONTH TIMELINE ── */
 .month-section { padding: 2rem 2rem 2rem; max-width: 1000px; margin: 0 auto; }
 
@@ -452,7 +379,6 @@ nav {
   border-bottom: 1px solid var(--line);
 }
 .month-row:last-child { border-bottom: none; }
-.month-row::before { display: none; }
 
 .month-lbl {
   padding: 2.5rem 0 0.8rem 0;
@@ -471,11 +397,7 @@ nav {
   font-size: 1.2rem; color: #2a1e1e;
   position: relative; z-index: 1;
 }
-.m-name-hi { display: none; }
 .m-age { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #6a5a50; position: relative; z-index: 1; }
-
-.m-dot { display: none; }
-.m-dot::after { display: none; }
 
 .month-body {
   padding: 0 0 1rem 0;
@@ -510,67 +432,60 @@ nav {
   font-size: 1.3rem; color: var(--maroon);
 }
 .mp-in img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.mp.vt { background: var(--deepred); border: none; }
-.mp.vt .mp-in { opacity: 1; flex-direction: column; gap: 0.3rem; }
-.mpr { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--marigold); display: flex; align-items: center; justify-content: center; }
-.mpt { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 14px solid var(--marigold); margin-left: 3px; }
 
-/* last month */
-.month-row.last { border-bottom: none; }
+/* ── VIDEO STYLES — MOBILE FIX ── */
+/*
+  KEY CHANGES FOR MOBILE WHITE SCREEN FIX:
+  1. Videos are absolutely positioned to fill the .mp container (same as images)
+  2. object-fit: cover so they behave like photos
+  3. border-radius matches the parent .mp card
+  4. The poster attribute (set by JS below) shows the first frame on mobile
+     before the user taps play — no more white/blank screen
+*/
+.mp video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  /* Ensures Safari/iOS renders the element even before interaction */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
 
-/* ── CONTINUING JOURNEY ── */
+/* Continuing / closing */
 .continuing {
   padding: 6rem 2rem;
   text-align: center;
   background: var(--cream);
   position: relative;
 }
-.cont-inner {
-  max-width: 600px;
-  margin: 0 auto;
-}
+.cont-inner { max-width: 600px; margin: 0 auto; }
 .cont-eyebrow {
   font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 0.95rem;
-  letter-spacing: 0.15em;
-  color: #a07050;
-  margin-bottom: 1rem;
+  font-style: italic; font-size: 0.95rem;
+  letter-spacing: 0.15em; color: #a07050; margin-bottom: 1rem;
 }
 .cont-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
-  color: #2a1e1e;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
+  color: #2a1e1e; line-height: 1.2; margin-bottom: 1.5rem;
 }
-.cont-title em {
-  font-style: italic;
-  color: #9a6545;
-}
+.cont-title em { font-style: italic; color: #9a6545; }
 .cont-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.05rem;
-  line-height: 1.85;
-  color: #4a3e38;
-  font-style: italic;
-  margin-bottom: 2rem;
+  font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;
+  line-height: 1.85; color: #4a3e38; font-style: italic; margin-bottom: 2rem;
 }
-.cont-divider {
-  display: flex; align-items: center;
-  gap: 1rem; justify-content: center;
-}
+.cont-divider { display: flex; align-items: center; gap: 1rem; justify-content: center; }
 
-/* ── CLOSING ── */
 .closing {
   background: var(--deepred); padding: 8rem 2rem;
   text-align: center; position: relative; overflow: hidden;
 }
 .closing::before {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 1px;
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(to right, transparent, var(--line), transparent);
 }
 .closing-glow {
@@ -599,7 +514,6 @@ footer {
 
 /* ── ANIM ── */
 @keyframes up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 720px) {
@@ -611,14 +525,6 @@ footer {
   .mp.s { width: 100%; }
   .mp.m { width: 100%; }
   .mp.l { width: 100%; }
-}
-
-/* ── VIDEO ELEMENT ── */
-.mp video {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
 }
 </style>
 </head>
@@ -747,7 +653,6 @@ footer {
     </div>
   </div>
 
-
   <div class="sband">
     <span class="sband-lbl">The Naming Ceremony · Day 21</span>
     <div class="sband-line"></div>
@@ -777,7 +682,7 @@ footer {
 <div class="ornament-band"></div>
 
 <!-- ════════════════════════════════════
-  CHAPTER 05 — FIRST YEAR, MONTH BY MONTH
+  CHAPTER 03 — FIRST YEAR, MONTH BY MONTH
 ════════════════════════════════════ -->
 <section class="chapter" id="ch-firstyear">
   <div class="chapter-header reveal">
@@ -795,13 +700,10 @@ footer {
       <div class="month-lbl">
         <span class="m-num">01</span>
         <span class="m-name">Month 1</span>
-        
         <span class="m-age">Newborn</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">Welcome to the World, Mahika 🌸</h3>
-        
         <p class="m-desc">Tiny hands, soft skin, and a cry that became the most beautiful sound in our world. One month of Mahika — and we already can't imagine life without her.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/1%20month%20old.jpg" alt="1 month old"></div></div>
@@ -815,18 +717,18 @@ footer {
       <div class="month-lbl">
         <span class="m-num">02</span>
         <span class="m-name">Month 2</span>
-        
         <span class="m-age">Two Months</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">Growing Every Day 😊</h3>
-        
         <p class="m-desc">Two months old and already so expressive. She recognises our faces, follows our voices, and melts our hearts with every little expression. Growing more beautiful every day.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/2%20months%20old.jpg" alt="2 months old"></div></div>
           <div class="mp s"><div class="mp-in"><img src="images/month2%20with%20papa.jpg" alt="Month 2 - with Papa"></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/2%20months.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/2%20months.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -836,17 +738,17 @@ footer {
       <div class="month-lbl">
         <span class="m-num">03</span>
         <span class="m-name">Month 3</span>
-        
         <span class="m-age">First Big Smile</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">That First Big Smile 😁</h3>
-        
         <p class="m-desc">Three months and she gave us that first big, real smile. Not just a reflex — a proper, eyes-crinkling, heart-melting smile meant just for us.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/3%20months%20first%20big%20smile.jpg" alt="3 months - first big smile"></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/3%20months.mov" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/3%20months.mov"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -856,17 +758,17 @@ footer {
       <div class="month-lbl">
         <span class="m-num">04</span>
         <span class="m-name">Month 4</span>
-        
         <span class="m-age">First Giggles</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">First Giggles 🎶</h3>
-        
         <p class="m-desc">Four months old and full of personality. Giggles, curious hands reaching for everything, and expressions that make the whole family laugh.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/4%20months.jpg" alt="4 months"></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/4%20months_.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/4%20months_.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -876,17 +778,17 @@ footer {
       <div class="month-lbl">
         <span class="m-num">05</span>
         <span class="m-name">Month 5</span>
-        
         <span class="m-age">Anna Prasanna</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">Her First Taste of Food 🍚</h3>
-        
         <p class="m-desc">Anna Prasanna — the ceremony of her very first solid food. The expression on her face when she tasted rice for the first time was absolutely priceless.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/5months%20old.jpg" alt="5 months old"></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/Anna%20prasanna%20-%20first%20solid%20food%20-%205%20months_.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/Anna%20prasanna%20-%20first%20solid%20food%20-%205%20months_.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -896,17 +798,17 @@ footer {
       <div class="month-lbl">
         <span class="m-num">06</span>
         <span class="m-name">Month 6</span>
-        
         <span class="m-age">Half Birthday</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">Happy Half Birthday, Mahika! ✨</h3>
-        
         <p class="m-desc">Half a year of Mahika! We celebrated her six-month birthday and watched her try so hard to roll over — pure determination in a tiny body.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/6%20month%20birthday.jpg" alt="6 month birthday"></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/6%20months%20-%20trying%20to%20roll_.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/6%20months%20-%20trying%20to%20roll_.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -916,19 +818,25 @@ footer {
       <div class="month-lbl">
         <span class="m-num">07</span>
         <span class="m-name">Month 7</span>
-        
         <span class="m-age">Little Explorer</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">Hide & Seek, Fruits & Standing Up! 🌟</h3>
-        
         <p class="m-desc">Seven months and Mahika's personality exploded. She loves playing hide and seek, tasted fruits for the first time, and started trying to stand up. Every day is a new adventure with this little one.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/7%20months.jpg" alt="7 months"></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/7%20months%20-%20love%20playing%20hide%20and%20seek.mov" controls playsinline preload="metadata"></video></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/7%20months%20-%20tasting%20fruits.mp4" controls playsinline preload="metadata"></video></div></div>
-          <div class="mp l"><div class="mp-in"><video src="videos/7%20months%20-%20trying%20to%20stand%20up%20.mov" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/7%20months%20-%20love%20playing%20hide%20and%20seek.mov"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/7%20months%20-%20tasting%20fruits.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
+          <div class="mp l"><div class="mp-in">
+            <video src="videos/7%20months%20-%20trying%20to%20stand%20up%20.mov"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -938,18 +846,24 @@ footer {
       <div class="month-lbl">
         <span class="m-num">08</span>
         <span class="m-name">Month 8</span>
-        
         <span class="m-age">Loves Going Out</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">Little Explorer Goes Outside 🌿</h3>
-        
         <p class="m-desc">Eight months and Mahika loves going out — every outing is an adventure. She watches the world with the widest eyes, taking it all in.</p>
         <div class="m-photos">
-          <div class="mp s"><div class="mp-in"><video src="videos/8%20months%20-%20love%20going%20out.mp4" controls playsinline preload="metadata"></video></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/8%20months%202.mp4" controls playsinline preload="metadata"></video></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/8%20months.MOV" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/8%20months%20-%20love%20going%20out.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/8%20months%202.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/8%20months.MOV"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -959,18 +873,18 @@ footer {
       <div class="month-lbl">
         <span class="m-num">09</span>
         <span class="m-name">Month 9</span>
-        
         <span class="m-age">Playground Days</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">First Time at the Playground! 🎠</h3>
-        
         <p class="m-desc">Nine months old and Mahika discovered the playground! Swings, slides and sand — pure joy on her face. She's getting braver and more curious every single day.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/month%209.jpg" alt="Month 9"></div></div>
           <div class="mp s"><div class="mp-in"><img src="images/month%209a.jpg" alt="Month 9"></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/month%209%20-%20playground.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/month%209%20-%20playground.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -980,18 +894,21 @@ footer {
       <div class="month-lbl">
         <span class="m-num">10</span>
         <span class="m-name">Month 10</span>
-        
         <span class="m-age">Water Baby</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">First Swimming Pool Experience! 🏊‍♀️</h3>
-        
         <p class="m-desc">Ten months old and Mahika experienced a swimming pool for the very first time! The splash, the surprise, the giggles — she took to water like a little fish.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/10%20months.jpg" alt="10 months"></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/10%20month.mp4" controls playsinline preload="metadata"></video></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/month%2010%20-%20first%20swimming%20pool%20exp.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/10%20month.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/month%2010%20-%20first%20swimming%20pool%20exp.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -1001,17 +918,20 @@ footer {
       <div class="month-lbl">
         <span class="m-num">11</span>
         <span class="m-name">Month 11</span>
-        
         <span class="m-age">Bike Lover</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
         <h3 class="m-mile">She Loves Her Bike! 🚲</h3>
-        
         <p class="m-desc">Eleven months and Mahika has found her favourite thing — her little bike! She lights up every time she sees it. Almost one year old, and she's already got her own set of wheels.</p>
         <div class="m-photos">
-          <div class="mp s"><div class="mp-in"><video src="videos/11%20months.mov" controls playsinline preload="metadata"></video></div></div>
-          <div class="mp s"><div class="mp-in"><video src="videos/month%2011%20-%20love%20her%20bike.mp4" controls playsinline preload="metadata"></video></div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/11%20months.mov"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
+          <div class="mp s"><div class="mp-in">
+            <video src="videos/month%2011%20-%20love%20her%20bike.mp4"
+              controls playsinline webkit-playsinline muted preload="metadata"></video>
+          </div></div>
         </div>
       </div>
     </div>
@@ -1021,13 +941,10 @@ footer {
       <div class="month-lbl">
         <span class="m-num" style="color:rgba(232,130,26,0.2);">12</span>
         <span class="m-name">Month 12</span>
-        
         <span class="m-age">First Birthday 🎂</span>
-        <div class="m-dot"></div>
       </div>
       <div class="month-body">
-        <h3 class="m-mile">First Trip to Goa & Swimming Lessons! 🏖️</h3>
-        
+        <h3 class="m-mile">First Trip to Goa ! 🏖️</h3>
         <p class="m-desc">One year of Mahika! We celebrated by taking her on her first trip to Goa — sand between tiny toes, ocean breeze in her hair. From the hospital to the beach — what an incredible journey this year has been.</p>
         <div class="m-photos">
           <div class="mp s"><div class="mp-in"><img src="images/month%2012%20goa.jpg" alt="Month 12 - first trip to Goa"></div></div>
@@ -1040,34 +957,24 @@ footer {
 </section>
 
 <div class="ornament-band"></div>
+
 <!-- ════════════════════════════════════
   TO BE CONTINUED
 ════════════════════════════════════ -->
 <section class="continuing reveal">
   <div class="cont-inner">
-
     <p class="cont-eyebrow">And the story goes on...</p>
-
-    <h2 class="cont-title">
-      Her most beautiful chapters are still <em>ahead</em>
-    </h2>
-
-    <p class="cont-desc">
-      One tiny year, a lifetime of memories already.<br><br>
-      And this is only the beginning — more laughter, more adventures,
-      more dreams, and countless beautiful tomorrows waiting for our little Mahika.
-    </p>
-
+    <h2 class="cont-title">This is just the <em>beginning</em></h2>
+    <p class="cont-desc">One year was just the first chapter. Every day with Mahika brings new firsts, new milestones, new memories worth keeping forever. Watch this space — the journey continues.</p>
     <div class="cont-divider">
-      <div class="cdl"></div>
       <span class="codot">∞</span>
-      <div class="cdl r"></div>
     </div>
-
   </div>
 </section>
 
-<div class="ornament-band"></div>z<!-- CLOSING -->
+<div class="ornament-band"></div>
+
+<!-- CLOSING -->
 <section class="closing reveal">
   <div class="closing-glow"></div>
   <p class="cl-om">✦</p>
@@ -1080,27 +987,118 @@ footer {
   Mahika's Story · Made with Love
 </footer>
 
-<script>
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-  });
-}, { threshold: 0.07 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+<!--
+  ════════════════════════════════════════════════
+  MOBILE VIDEO WHITE SCREEN FIX
+  ════════════════════════════════════════════════
 
-// Active nav highlight
-const chapters = document.querySelectorAll('.chapter');
-const navLinks  = document.querySelectorAll('.nav-links a');
-const navIO = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(a => a.classList.remove('active'));
-      const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-      if (a) a.classList.add('active');
+  WHY THIS WORKS:
+  ───────────────
+  Mobile Safari (iOS) and many Android browsers will not render
+  a video's first frame into the element until the user interacts
+  with the page, causing a white/black blank area.
+
+  This script waits for each video's metadata to load, then usesf
+  a hidden <canvas> to draw the first frame and converts it to a
+  data URL which is set as the video's poster attribute.
+
+  The poster image is shown:
+    • Before the user taps play
+    • While the video is loading
+    • If the video fails to load
+
+  ADDITIONAL ATTRIBUTES ADDED TO EVERY <video>:
+    playsinline          — tells iOS to play inline (not fullscreen)
+    webkit-playsinline   — older iOS Safari compatibility
+    muted                — required by iOS for any inline behaviour
+    preload="metadata"   — loads just enough to get the first frame
+                           without downloading the whole video
+  ════════════════════════════════════════════════
+-->
+<canvas id="__poster_canvas" style="display:none;" aria-hidden="true"></canvas>
+<script>
+(function () {
+  'use strict';
+
+  // ── Intersection Observer for reveal animations ──
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ── Active nav highlight ──
+  const chapters = document.querySelectorAll('.chapter');
+  const navLinks  = document.querySelectorAll('.nav-links a');
+  const navIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+  chapters.forEach(c => navIO.observe(c));
+
+  // ── VIDEO POSTER FRAME CAPTURE ──
+  // Grabs the first frame of every video and sets it as a poster.
+  // This prevents the white/blank screen on mobile browsers.
+  const canvas = document.getElementById('__poster_canvas');
+  const ctx = canvas.getContext('2d');
+
+  function capturePoster(video) {
+    // Already has a poster (e.g. set manually in HTML), skip
+    if (video.getAttribute('poster')) return;
+
+    function grab() {
+      try {
+        // Draw at the video's natural resolution (capped for performance)
+        const w = Math.min(video.videoWidth  || 640, 640);
+        const h = Math.min(video.videoHeight || 480, 480);
+        canvas.width  = w;
+        canvas.height = h;
+        ctx.drawImage(video, 0, 0, w, h);
+        const dataURL = canvas.toDataURL('image/jpeg', 0.75);
+        // Only set if we actually got pixels (not a blank canvas)
+        if (dataURL && dataURL.length > 1000) {
+          video.setAttribute('poster', dataURL);
+        }
+      } catch (e) {
+        // Cross-origin or security error — silently ignore
+      }
     }
+
+    if (video.readyState >= 1) {
+      // Metadata already available — seek to first frame and grab
+      video.currentTime = 0.001;
+      video.addEventListener('seeked', grab, { once: true });
+    } else {
+      video.addEventListener('loadedmetadata', function () {
+        video.currentTime = 0.001;
+        video.addEventListener('seeked', grab, { once: true });
+      }, { once: true });
+    }
+  }
+
+  // Run on all videos immediately
+  document.querySelectorAll('video').forEach(capturePoster);
+
+  // Also run on any videos that might be added later (future-proof)
+  const mutObs = new MutationObserver(mutations => {
+    mutations.forEach(m => {
+      m.addedNodes.forEach(node => {
+        if (node.nodeName === 'VIDEO') capturePoster(node);
+        if (node.querySelectorAll) {
+          node.querySelectorAll('video').forEach(capturePoster);
+        }
+      });
+    });
   });
-}, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
-chapters.forEach(c => navIO.observe(c));
+  mutObs.observe(document.body, { childList: true, subtree: true });
+
+})();
 </script>
 </body>
 </html>
