@@ -1,1 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>  — Our Daughter's Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:ital,wght@0,300;0,400;1,300&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --maroon:   #2d2a2e;
+  --deepred:  #1a1820;
+  --saffron:  #c4916e;
+  --marigold: #d4a574;
+  --turmeric: #b08968;
+  --gold:     #c4a882;
+  --goldlt:   #d9c4a8;
+  --ivory:    #faf8f5;
+  --cream:    #f5f0eb;
+  --parchment:#eee8e0;
+  --henna:    #8b6f5e;
+  --rose:     #c9a0a0;
+  --ink:      #2a2428;
+  --muted:    #8a7e78;
+  --line:     #ddd5cc;
+  --white:    #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── MANDALA SVG BACKGROUND ── */
+.mandala-bg {
+  position: absolute;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  background: var(--deepred);
+  border-bottom: 1px solid var(--line);
+  height: 58px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 1.3rem; color: var(--marigold);
+  text-decoration: none; letter-spacing: 0.04em;
+}
+
+.nav-logo span { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 1rem; color: var(--goldlt); margin-right: 0.5rem; }
+
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  display: block; padding: 0 1rem;
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.82rem; letter-spacing: 0.08em;
+  text-decoration: none; color: rgba(196,168,130,0.5);
+  height: 58px; line-height: 58px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--marigold); border-bottom-color: var(--marigold);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--deepred);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 2rem 4rem;
+}
+
+/* Paisley/mandala SVG pattern overlay */
+.hero-pattern {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(201,160,160,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(180,160,140,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(42,36,40,0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Top and bottom border ornament */
+.hero-border-top, .hero-border-bottom {
+  position: absolute; left: 0; right: 0; height: 2px;
+  background: linear-gradient(to right, transparent, var(--line), transparent);
+}
+.hero-border-top { top: 58px; }
+.hero-border-bottom { bottom: 0; }
+
+/* Decorative corner SVG-like borders */
+.hero-corner {
+  position: absolute; width: 120px; height: 120px;
+  border: 1px solid rgba(196,168,130,0.12);
+  pointer-events: none;
+}
+.hero-corner.tl { top: 80px; left: 20px; border-right: none; border-bottom: none; }
+.hero-corner.tr { top: 80px; right: 20px; border-left: none; border-bottom: none; }
+.hero-corner.bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+.hero-corner.br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+
+.hero-om {
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 2rem; color: var(--marigold);
+  margin-bottom: 0.8rem; opacity: 0;
+  animation: up 0.8s 0.2s forwards;
+  letter-spacing: 0.3em;
+}
+
+.hero-devanagari {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-style: italic;
+  color: rgba(196,168,130,0.45);
+  letter-spacing: 0.15em; margin-bottom: 1.2rem;
+  opacity: 0; animation: up 0.8s 0.5s forwards;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  color: var(--marigold);
+  line-height: 1; letter-spacing: 0.02em;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 40px rgba(196,168,130,0.15);
+  opacity: 0; animation: up 1s 0.7s forwards;
+}
+
+.hero-title-hi {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+  font-style: italic;
+  color: var(--goldlt);
+  opacity: 0; margin-bottom: 1.5rem;
+  animation: up 0.9s 0.9s forwards;
+  letter-spacing: 0.04em;
+}
+
+.hero-divider {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0; animation: up 0.8s 1.1s forwards;
+}
+.hdl { width: 80px; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
+.hdl.r { background: linear-gradient(to left, transparent, var(--gold)); }
+.hdot { font-size: 1.2rem; color: var(--marigold); }
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-style: italic; color: rgba(255,255,255,0.45);
+  max-width: 500px; line-height: 1.7; margin-bottom: 3rem;
+  opacity: 0; animation: up 0.8s 1.3s forwards;
+}
+
+.hero-chapters {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 0.7rem;
+  max-width: 640px;
+  opacity: 0; animation: up 0.8s 1.5s forwards;
+}
+
+.ch-pill {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.45rem 1.1rem 0.45rem 0.6rem;
+  border: 1px solid rgba(196,168,130,0.25);
+  border-radius: 2px;
+  text-decoration: none;
+  background: rgba(196,168,130,0.04);
+  transition: border-color 0.3s, background 0.3s;
+}
+.ch-pill:hover { border-color: var(--marigold); background: rgba(196,168,130,0.1); }
+.pill-n {
+  width: 22px; height: 22px; border-radius: 2px;
+  background: var(--maroon); border: 1px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; color: var(--goldlt); font-family: 'Jost', sans-serif; font-weight: 300;
+}
+.pill-t { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.82rem; letter-spacing: 0.08em; color: rgba(196,168,130,0.6); }
+
+/* ── ORNAMENT BAND ── */
+.ornament-band {
+  height: 20px; width: 100%;
+  background: var(--maroon);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.5rem; overflow: hidden;
+  position: relative;
+}
+.ornament-band::before {
+  content: '· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·';
+  font-size: 0.65rem; color: var(--gold); letter-spacing: 0.5rem;
+  white-space: nowrap; opacity: 0.6;
+}
+
+/* ── CHAPTER STRUCTURE ── */
+.chapter { scroll-margin-top: 58px; }
+
+.chapter-header {
+  padding: 5rem 2rem 2.5rem; text-align: center;
+  position: relative;
+}
+
+.ch-num-tag {
+  display: inline-block;
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.75rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--saffron);
+  margin-bottom: 0.8rem;
+  padding: 0.2rem 1.2rem;
+  border: 1px solid rgba(196,160,130,0.2);
+  border-radius: 2px;
+}
+
+.ch-title {
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--maroon); line-height: 1.1; margin-bottom: 0.5rem;
+}
+.ch-title em { font-style: italic; color: var(--saffron); font-family: 'Cormorant Garamond', serif; }
+
+.ch-title-hi {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  font-style: italic;
+  color: var(--turmeric); margin-bottom: 1rem;
+  opacity: 0.85;
+  letter-spacing: 0.06em;
+}
+
+.ch-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; color: var(--muted);
+  max-width: 540px; margin: 0 auto; line-height: 1.9;
+}
+
+.ch-ornament {
+  display: flex; align-items: center; gap: 0.8rem;
+  justify-content: center; margin-top: 1.5rem;
+}
+.col { width: 50px; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
+.col.r { background: linear-gradient(to left, transparent, var(--gold)); }
+.codot { font-size: 1rem; color: var(--marigold); }
+
+/* ── SECTION BAND ── */
+.sband {
+  background: var(--maroon);
+  border-top: 1px solid rgba(196,168,130,0.15);
+  border-bottom: 1px solid rgba(196,168,130,0.15);
+  padding: 0.5rem 2rem;
+  display: flex; align-items: center; gap: 1rem;
+  position: sticky; top: 58px; z-index: 100;
+}
+.sband-lbl {
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.78rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--marigold);
+  white-space: nowrap;
+}
+.sband-line { flex: 1; height: 1px; background: rgba(196,168,130,0.15); }
+.sband-deco { color: var(--gold); font-size: 0.8rem; opacity: 0.5; }
+
+/* ── PHOTO GRIDS ── */
+.pgrid {
+  max-width: 1100px; margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+  display: grid; gap: 0.8rem;
+}
+.pgrid.g1  { grid-template-columns: 1fr; }
+.pgrid.g2  { grid-template-columns: 1fr 1fr; }
+.pgrid.g3  { grid-template-columns: 1fr 1fr 1fr; }
+.pgrid.gft { grid-template-columns: 1.5fr 1fr 1fr; }
+.pgrid.gtr { grid-template-columns: 1fr 1.3fr 1fr; }
+
+.pcard {
+  position: relative; overflow: hidden;
+  border-radius: 2px; background: var(--parchment);
+  cursor: pointer;
+  border: 1px solid rgba(196,168,130,0.2);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.pcard::before {
+  content: '';
+  position: absolute; inset: 5px;
+  border: 1px solid rgba(196,168,130,0.1);
+  z-index: 1; pointer-events: none;
+  transition: border-color 0.4s;
+}
+.pcard:hover { transform: scale(1.015); box-shadow: 0 8px 32px rgba(42,36,40,0.12); }
+.pcard:hover::before { border-color: rgba(196,168,130,0.35); }
+
+.pcard.tall    { aspect-ratio: 3/4; }
+.pcard.port    { aspect-ratio: 2/3; }
+.pcard.sq      { aspect-ratio: 1; }
+.pcard.wide    { aspect-ratio: 16/9; }
+.pcard.land    { aspect-ratio: 4/3; }
+
+.pcard-in {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0.6rem; z-index: 0;
+}
+.pcard-in img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; image-rendering: auto; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: translateZ(0); }
+.phi { font-size: 2rem; opacity: 0.2; color: var(--maroon); }
+.pht { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); opacity: 0.5; }
+
+.pcard-ov {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  padding: 2.5rem 1rem 0.9rem;
+  background: linear-gradient(transparent, rgba(26,24,32,0.65));
+  opacity: 0; transition: opacity 0.4s;
+}
+.pcard:hover .pcard-ov { opacity: 1; }
+.ov-lbl {
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.7rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--goldlt);
+}
+
+/* ── VIDEO CARD ── */
+.vcard {
+  position: relative; overflow: hidden;
+  border-radius: 2px; background: var(--deepred);
+  border: 1px solid rgba(196,168,130,0.25);
+  cursor: pointer;
+}
+.vcard-in {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem;
+}
+.play-ring {
+  width: 58px; height: 58px; border-radius: 50%;
+  border: 1.5px solid var(--marigold);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s, background 0.3s;
+}
+.vcard:hover .play-ring { transform: scale(1.1); background: rgba(201,160,160,0.1); }
+.play-tri { width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 16px solid var(--marigold); margin-left: 3px; }
+.vc-lbl { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(196,168,130,0.3); }
+
+/* ── STORY BLOCK ── */
+.story-block {
+  max-width: 660px; margin: 0 auto;
+  padding: 1.5rem 2rem 0; text-align: center;
+}
+.sq {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-style: italic; color: var(--maroon);
+  line-height: 1.65; margin-bottom: 1rem;
+}
+.sq-hi {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-style: italic;
+  color: var(--turmeric);
+  opacity: 0.85;
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+.sb { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 1rem; line-height: 1.95; color: var(--muted); }
+
+/* ── CHAPTER SEPARATOR ── */
+.csep {
+  text-align: center; padding: 4rem 2rem;
+  background: var(--deepred);
+  position: relative; overflow: hidden;
+}
+.csep::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.csep::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--rose), transparent);
+}
+.csep-deco { font-size: 2rem; color: var(--marigold); margin-bottom: 0.5rem; display: block; }
+.csep-sc {
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--marigold); line-height: 1; margin-bottom: 0.3rem;
+}
+.csep-hi {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-style: italic; color: var(--goldlt); opacity: 0.65; margin-bottom: 0.3rem;
+  letter-spacing: 0.04em;
+}
+.csep-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(196,168,130,0.35); }
+
+/* ── YOUTUBE ── */
+.yt-wrap { padding: 4rem 2rem; max-width: 920px; margin: 0 auto; }
+.yt-hd { text-align: center; margin-bottom: 2rem; }
+.yt-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(1.4rem,3vw,2rem); color: var(--maroon); margin-bottom: 0.3rem; }
+.yt-hi { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; font-style: italic; color: var(--turmeric); opacity: 0.8; margin-bottom: 0.4rem; }
+.yt-sub { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.85rem; color: var(--muted); font-style: italic; }
+
+.yt-frame-wrap {
+  position: relative; padding-bottom: 56.25%; height: 0;
+  border: 2px solid var(--line); border-radius: 2px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(42,36,40,0.15), inset 0 0 0 4px rgba(196,168,130,0.06);
+}
+.yt-frame-wrap::before {
+  content: '';
+  position: absolute; inset: 6px;
+  border: 1px solid rgba(196,168,130,0.15);
+  z-index: 2; pointer-events: none;
+}
+.yt-frame-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 1; }
+.yt-ph {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(135deg, var(--deepred), #6b1a1a);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.2rem; cursor: pointer;
+}
+.yt-pbtn {
+  width: 78px; height: 78px; border-radius: 50%;
+  border: 2px solid var(--marigold);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s, background 0.3s;
+}
+.yt-pbtn:hover { transform: scale(1.08); background: rgba(201,160,160,0.08); }
+.yt-ptri { width: 0; height: 0; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid var(--marigold); margin-left: 5px; }
+.yt-ph p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(196,168,130,0.4); }
+
+/* ── MONTH TIMELINE ── */
+.month-section { padding: 3rem 2rem 2rem; max-width: 1200px; margin: 0 auto; }
+
+.month-row {
+  display: grid; grid-template-columns: 120px 1fr;
+  position: relative; margin-bottom: 0;
+}
+.month-row::before {
+  content: '';
+  position: absolute;
+  left: 120px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--line), rgba(196,168,130,0.15));
+  z-index: 0;
+}
+
+.month-lbl {
+  padding: 1.8rem 1.6rem 0 0;
+  display: flex; flex-direction: column;
+  align-items: flex-end; position: relative; z-index: 1;
+}
+.m-num {
+  font-family: 'Cormorant Garamond', serif; font-weight: 500;
+  font-size: 2.6rem; color: rgba(196,168,130,0.15);
+  line-height: 1; position: absolute;
+  top: 1rem; right: 1.5rem;
+}
+.m-name {
+  font-family: 'Cormorant Garamond', serif; font-weight: 500;
+  font-size: 1.1rem; color: var(--maroon);
+  position: relative; z-index: 1;
+}
+.m-name-hi { display: none; }
+.m-age { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.15rem; position: relative; z-index: 1; }
+
+.m-dot {
+  position: absolute; right: -7px; top: 2.2rem;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--ivory);
+  border: 2px solid var(--line); z-index: 2;
+}
+.m-dot::after {
+  content: '';
+  position: absolute; inset: 2px; border-radius: 50%;
+  background: var(--marigold); opacity: 0.6;
+}
+
+.month-body {
+  padding: 1.8rem 0 3.5rem 2rem;
+  position: relative; z-index: 1;
+}
+
+.m-mile {
+  font-family: 'Cormorant Garamond', serif; font-weight: 500;
+  font-size: 1.4rem; color: var(--maroon); margin-bottom: 0.2rem;
+}
+.m-mile-hi {
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.8rem; color: var(--turmeric); opacity: 0.65; margin-bottom: 0.5rem;
+}
+.m-desc { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; max-width: 700px; }
+
+.m-photos { display: flex; gap: 1.2rem; flex-wrap: wrap; width: 100%; }
+.mp {
+  flex-shrink: 0; border-radius: 6px; overflow: hidden;
+  background: var(--parchment);
+  border: 1px solid rgba(196,168,130,0.2);
+  position: relative; cursor: pointer;
+}
+.mp:hover { }
+.mp.s  { width: calc(50% - 0.6rem); aspect-ratio: 3/4; }
+.mp.m  { width: calc(50% - 0.6rem); aspect-ratio: 3/4; }
+.mp.l  { width: 100%; aspect-ratio: 16/10; }
+.mp-in {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; opacity: 0.18; color: var(--maroon);
+}
+.mp-in img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 6px; image-rendering: auto; -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: translateZ(0); }
+.mp.vt { background: var(--deepred); border-color: rgba(196,168,130,0.15); }
+.mp.vt .mp-in { opacity: 1; flex-direction: column; gap: 0.3rem; }
+.mpr { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--marigold); display: flex; align-items: center; justify-content: center; }
+.mpt { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 14px solid var(--marigold); margin-left: 3px; }
+
+/* last month */
+.month-row.last .m-name { color: var(--saffron); font-size: 1rem; }
+.month-row.last .m-dot { border-color: var(--saffron); width: 17px; height: 17px; right: -9px; }
+.month-row.last .m-dot::after { background: var(--saffron); }
+.month-row.last .m-mile { color: var(--saffron); font-size: 1.3rem; }
+.month-row.last::before { background: linear-gradient(to bottom, var(--line), transparent); }
+
+/* ── CLOSING ── */
+.closing {
+  background: var(--deepred); padding: 8rem 2rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+.closing::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--line), transparent);
+}
+.closing-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 70%, rgba(201,160,160,0.1), transparent 65%);
+  pointer-events: none;
+}
+.cl-om { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 2.5rem; color: var(--marigold); margin-bottom: 0.5rem; letter-spacing: 0.4em; }
+.cl-sc { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2.5rem,6vw,5rem); color: var(--marigold); line-height: 1; margin-bottom: 0.4rem; }
+.cl-hi { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem,2.5vw,1.4rem); font-style: italic; color: var(--goldlt); opacity: 0.6; margin-bottom: 1rem; letter-spacing: 0.04em; }
+.cl-ln { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.95rem,2vw,1.2rem); font-style: italic; color: rgba(255,255,255,0.38); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.75; }
+.cl-ht { font-size: 1.5rem; letter-spacing: 0.8rem; color: var(--saffron); }
+
+footer {
+  background: var(--maroon);
+  padding: 1.5rem; text-align: center;
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.75rem; color: rgba(196,168,130,0.3);
+  letter-spacing: 0.15em;
+  border-top: 1px solid var(--line);
+}
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── ANIM ── */
+@keyframes up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .hero { padding: 80px 1.5rem 4rem; }
+  .pgrid.g2, .pgrid.g3, .pgrid.gft, .pgrid.gtr { grid-template-columns: 1fr; }
+  .month-row { grid-template-columns: 90px 1fr; }
+  .month-row::before { left: 90px; }
+  .mp.s { width: 100%; }
+  .mp.m { width: 100%; }
+  .mp.l { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav>
+  <a href="#" class="nav-logo">Mahika's Story</a>
+  <ul class="nav-links">
+    <li><a href="#ch-pregnancy">The Pregnancy</a></li>
+    <li><a href="#ch-arrival">She Arrived</a></li>
+    <li><a href="#ch-firstyear">Her First Year</a></li>
+  </ul>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-corner tl"></div>
+  <div class="hero-corner tr"></div>
+  <div class="hero-corner bl"></div>
+  <div class="hero-corner br"></div>
+  <div class="hero-border-top"></div>
+  <div class="hero-border-bottom"></div>
+
+  <p class="hero-om">✦ ✦ ✦</p>
+  <p class="hero-devanagari">From baby bump to baby steps — Mahika's first year</p>
+
+  <h1 class="hero-title">Mahika</h1>
+  <p class="hero-title-hi">Our little wonder, month by month</p>
+
+  <div class="hero-divider">
+    <div class="hdl"></div>
+    <span class="hdot">🌸</span>
+    <div class="hdl r"></div>
+  </div>
+
+  <p class="hero-sub">
+    From the godh bharai to her first trip to Goa — every chapter of Mahika's journey,<br>
+    captured in photos and videos we'll treasure forever.
+  </p>
+
+  <div class="hero-chapters">
+    <a href="#ch-pregnancy" class="ch-pill"><span class="pill-n">01</span><span class="pill-t">The Pregnancy</span></a>
+    <a href="#ch-arrival"   class="ch-pill"><span class="pill-n">02</span><span class="pill-t">She Arrived</span></a>
+    <a href="#ch-firstyear" class="ch-pill"><span class="pill-n">03</span><span class="pill-t">First Year · Month by Month</span></a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+  CHAPTER 01 — PREGNANCY
+════════════════════════════════════ -->
+<section class="chapter" id="ch-pregnancy">
+  <div class="chapter-header reveal">
+    <span class="ch-num-tag">Chapter 01</span>
+    <h2 class="ch-title">The <em>Pregnancy</em></h2>
+    <p class="ch-title-hi">Nine months of wonder & waiting</p>
+    <p class="ch-desc">God's most beautiful blessing. Nine months of waiting, a lifetime of love ready to be given — and then she arrived and made our family complete.</p>
+    <div class="ch-ornament"><div class="col"></div><span class="codot">🌸</span><div class="col r"></div></div>
+  </div>
+
+  <div class="sband">
+    <span class="sband-lbl">The Baby Bump & Godh Bharai</span>
+    <div class="sband-line"></div>
+    <span class="sband-deco">✦</span>
+  </div>
+
+  <div class="pgrid g3 reveal">
+    <div class="pcard port">
+      <div class="pcard-in"><img src="images/baby%20bump.jpg" alt="Baby bump"></div>
+      <div class="pcard-ov"><p class="ov-lbl">The Baby Bump</p></div>
+    </div>
+    <div class="pcard port">
+      <div class="pcard-in"><img src="images/baby%20bump%201.jpg" alt="Baby bump"></div>
+      <div class="pcard-ov"><p class="ov-lbl">Growing Together</p></div>
+    </div>
+    <div class="pcard port">
+      <div class="pcard-in"><img src="images/god%20bharai%20-%20babyshower.jpg" alt="Godh Bharai ceremony"></div>
+      <div class="pcard-ov"><p class="ov-lbl">Godh Bharai Ceremony</p></div>
+    </div>
+  </div>
+
+</section>
+
+<div class="ornament-band"></div>
+<div class="csep reveal">
+  <span class="csep-deco">🌸</span>
+  <p class="csep-sc">She Is Here</p>
+  <p class="csep-hi">The day everything changed</p>
+  <p class="csep-sub">The arrival · first holds · our family of three</p>
+</div>
+<div class="ornament-band"></div>
+
+<!-- ════════════════════════════════════
+  CHAPTER 02 — SHE ARRIVED
+════════════════════════════════════ -->
+<section class="chapter" id="ch-arrival">
+  <div class="chapter-header reveal">
+    <span class="ch-num-tag">Chapter 02</span>
+    <h2 class="ch-title">She <em>Arrived</em></h2>
+    <p class="ch-title-hi">The day our world changed forever</p>
+    <p class="ch-desc">Day 1 — she arrived. By Day 7 we couldn't imagine life without her. And on Day 21, at her naming ceremony, she officially became Mahika.</p>
+    <div class="ch-ornament"><div class="col"></div><span class="codot">🌸</span><div class="col r"></div></div>
+  </div>
+
+  <div class="sband">
+    <span class="sband-lbl">Welcome to the World</span>
+    <div class="sband-line"></div>
+    <span class="sband-deco">✦</span>
+  </div>
+
+  <div class="pgrid g1 reveal">
+    <div class="pcard wide">
+      <div class="pcard-in"><img src="images/day%201%20she%20arrived.jpg" alt="Day 1 - Mahika arrived"></div>
+      <div class="pcard-ov"><p class="ov-lbl">Day 1 — Mahika Is Here ♡</p></div>
+    </div>
+  </div>
+  <div class="pgrid g2 reveal" style="padding-top:0;">
+    <div class="pcard land">
+      <div class="pcard-in"><img src="images/5%20days%20old.jpg" alt="5 days old"></div>
+      <div class="pcard-ov"><p class="ov-lbl">5 Days Old</p></div>
+    </div>
+    <div class="pcard land">
+      <div class="pcard-in"><img src="images/day%207.jpg" alt="Day 7"></div>
+      <div class="pcard-ov"><p class="ov-lbl">One Week Old</p></div>
+    </div>
+  </div>
+
+
+  <div class="sband">
+    <span class="sband-lbl">The Naming Ceremony · Day 21</span>
+    <div class="sband-line"></div>
+    <span class="sband-deco">✦</span>
+  </div>
+
+  <div class="pgrid g1 reveal">
+    <div class="pcard wide">
+      <div class="pcard-in"><img src="images/day%2021%20-%20naming%20ceremony.jpg" alt="Day 21 - Naming ceremony"></div>
+      <div class="pcard-ov"><p class="ov-lbl">Day 21 — Naming Ceremony · She Became Mahika</p></div>
+    </div>
+  </div>
+
+  <div class="story-block reveal" style="padding-top:2rem;">
+    <p class="sq-hi">"From the moment we held her, the world made sense."</p>
+    <p class="sb">Day 1, she arrived and our hearts doubled in size. By Day 7, we couldn't remember life before her. And on Day 21, at her naming ceremony, she became Mahika — our little wonder.</p>
+  </div>
+</section>
+
+<div class="ornament-band"></div>
+<div class="csep reveal">
+  <span class="csep-deco">✦</span>
+  <p class="csep-sc">Her First Year</p>
+  <p class="csep-hi">Twelve months of pure wonder</p>
+  <p class="csep-sub">Month by month · every milestone · every precious first</p>
+</div>
+<div class="ornament-band"></div>
+
+<!-- ════════════════════════════════════
+  CHAPTER 05 — FIRST YEAR, MONTH BY MONTH
+════════════════════════════════════ -->
+<section class="chapter" id="ch-firstyear">
+  <div class="chapter-header reveal">
+    <span class="ch-num-tag">Chapter 03</span>
+    <h2 class="ch-title">Her <em>First Year</em></h2>
+    <p class="ch-title-hi">Month by Month · Every Milestone</p>
+    <p class="ch-desc">Twelve months of milestones, wonder and pure joy. Every smile, every first — each one a blessing we will cherish forever.</p>
+    <div class="ch-ornament"><div class="col"></div><span class="codot">🌸</span><div class="col r"></div></div>
+  </div>
+
+  <div class="month-section">
+
+    <!-- M1 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">01</span>
+        <span class="m-name">Month 1</span>
+        
+        <span class="m-age">Newborn</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">Welcome to the World, Mahika 🌸</h3>
+        
+        <p class="m-desc">Tiny hands, soft skin, and a cry that became the most beautiful sound in our world. One month of Mahika — and we already can't imagine life without her.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/1%20month%20old.jpg" alt="1 month old"></div></div>
+          <div class="mp s"><div class="mp-in"><img src="images/month%201.jpg" alt="Month 1"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M2 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">02</span>
+        <span class="m-name">Month 2</span>
+        
+        <span class="m-age">With Papa</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">Papa's Little Girl 😊</h3>
+        
+        <p class="m-desc">Two months old and already Papa's best friend. She lights up when he holds her, and he lights up right back. The bond is everything.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/2%20months%20old.jpg" alt="2 months old"></div></div>
+          <div class="mp s"><div class="mp-in"><img src="images/month2%20with%20papa.jpg" alt="Month 2 - with Papa"></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- 2 months.MOV --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M3 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">03</span>
+        <span class="m-name">Month 3</span>
+        
+        <span class="m-age">First Big Smile</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">That First Big Smile 😁</h3>
+        
+        <p class="m-desc">Three months and she gave us that first big, real smile. Not just a reflex — a proper, eyes-crinkling, heart-melting smile meant just for us.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/3%20months%20first%20big%20smile.jpg" alt="3 months - first big smile"></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- 3 months.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M4 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">04</span>
+        <span class="m-name">Month 4</span>
+        
+        <span class="m-age">First Giggles</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">First Giggles 🎶</h3>
+        
+        <p class="m-desc">Four months old and full of personality. Giggles, curious hands reaching for everything, and expressions that make the whole family laugh.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/4%20months.jpg" alt="4 months"></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- 4 months video --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M5 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">05</span>
+        <span class="m-name">Month 5</span>
+        
+        <span class="m-age">Anna Prasanna</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">Her First Taste of Food 🍚</h3>
+        
+        <p class="m-desc">Anna Prasanna — the ceremony of her very first solid food. The expression on her face when she tasted rice for the first time was absolutely priceless.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/5months%20old.jpg" alt="5 months old"></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- Anna prasanna - first solid food --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M6 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">06</span>
+        <span class="m-name">Month 6</span>
+        
+        <span class="m-age">Half Birthday</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">Happy Half Birthday, Mahika! ✨</h3>
+        
+        <p class="m-desc">Half a year of Mahika! We celebrated her six-month birthday and watched her try so hard to roll over — pure determination in a tiny body.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/6%20month%20birthday.jpg" alt="6 month birthday"></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- 6 months - trying to roll --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M7 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">07</span>
+        <span class="m-name">Month 7</span>
+        
+        <span class="m-age">Little Explorer</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">Hide & Seek, Fruits & Standing Up! 🌟</h3>
+        
+        <p class="m-desc">Seven months and Mahika's personality exploded. She loves playing hide and seek, tasted fruits for the first time, and started trying to stand up. Every day is a new adventure with this little one.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/7%20months.jpg" alt="7 months"></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- 7 months - hide and seek --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- 7 months - tasting fruits --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp vt l"><div class="mp-in"><!-- 7 months - trying to stand up (HORIZONTAL) --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M8 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">08</span>
+        <span class="m-name">Month 8</span>
+        
+        <span class="m-age">Loves Going Out</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">Little Explorer Goes Outside 🌿</h3>
+        
+        <p class="m-desc">Eight months and Mahika loves going out — every outing is an adventure. She watches the world with the widest eyes, taking it all in.</p>
+        <div class="m-photos">
+          <div class="mp vt s"><div class="mp-in"><!-- 8 months - love going out --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- 8 months 2.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- 8 months.MOV --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M9 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">09</span>
+        <span class="m-name">Month 9</span>
+        
+        <span class="m-age">Playground Days</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">First Time at the Playground! 🎠</h3>
+        
+        <p class="m-desc">Nine months old and Mahika discovered the playground! Swings, slides and sand — pure joy on her face. She's getting braver and more curious every single day.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/month%209.jpg" alt="Month 9"></div></div>
+          <div class="mp s"><div class="mp-in"><img src="images/month%209a.jpg" alt="Month 9"></div></div>
+          <div class="mp s"><div class="mp-in"><!-- upload month-9-c.jpg -->📸</div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- month 9 - playground.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M10 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">10</span>
+        <span class="m-name">Month 10</span>
+        
+        <span class="m-age">Water Baby</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">First Swimming Pool Experience! 🏊‍♀️</h3>
+        
+        <p class="m-desc">Ten months old and Mahika experienced a swimming pool for the very first time! The splash, the surprise, the giggles — she took to water like a little fish.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/10%20months.jpg" alt="10 months"></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- 10 month.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- month 10 - first swimming pool exp --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M11 -->
+    <div class="month-row reveal">
+      <div class="month-lbl">
+        <span class="m-num">11</span>
+        <span class="m-name">Month 11</span>
+        
+        <span class="m-age">Bike Lover</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">She Loves Her Bike! 🚲</h3>
+        
+        <p class="m-desc">Eleven months and Mahika has found her favourite thing — her little bike! She lights up every time she sees it. Almost one year old, and she's already got her own set of wheels.</p>
+        <div class="m-photos">
+          <div class="mp vt s"><div class="mp-in"><!-- 11 months.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- month 11 - love her bike.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M12 — BIRTHDAY -->
+    <div class="month-row last reveal">
+      <div class="month-lbl">
+        <span class="m-num" style="color:rgba(232,130,26,0.2);">12</span>
+        <span class="m-name">Month 12</span>
+        
+        <span class="m-age">First Birthday 🎂</span>
+        <div class="m-dot"></div>
+      </div>
+      <div class="month-body">
+        <h3 class="m-mile">First Trip to Goa & Swimming Lessons! 🏖️</h3>
+        
+        <p class="m-desc">One year of Mahika! We celebrated by taking her on her first trip to Goa — sand between tiny toes, ocean breeze in her hair, and her very first swimming lesson. From the hospital to the beach — what an incredible journey this year has been.</p>
+        <div class="m-photos">
+          <div class="mp s"><div class="mp-in"><img src="images/month%2012%20goa.jpg" alt="Month 12 - first trip to Goa"></div></div>
+          <div class="mp s"><div class="mp-in"><!-- upload month-12-photo-2.jpg -->📸</div></div>
+          <div class="mp vt s"><div class="mp-in"><!-- month 12 - first lesson in swimming.mov --><div class="mpr"><div class="mpt"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /month-section -->
+</section>
+
+<div class="ornament-band"></div>
+
+<!-- CLOSING -->
+<section class="closing reveal">
+  <div class="closing-glow"></div>
+  <p class="cl-om">✦</p>
+  <p class="cl-sc">Mahika</p>
+  <p class="cl-hi">Our little wonder — the best thing that ever happened to us</p>
+  <p class="cl-ht">✦  ♡  ✦</p>
+</section>
+
+<footer>
+  Mahika's Story · Made with Love
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Active nav highlight
+const chapters = document.querySelectorAll('.chapter');
+const navLinks  = document.querySelectorAll('.nav-links a');
+const navIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+chapters.forEach(c => navIO.observe(c));
+</script>
+</body>
+</html>
